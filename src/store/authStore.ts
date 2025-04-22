@@ -36,7 +36,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
           .from('profiles')
           .select('*')
           .eq('id', data.user.id)
-          .single();
+          .maybeSingle();
           
         // If no profile exists, create one
         if (!profileData && !profileError) {
@@ -49,7 +49,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
               is_admin: false,
             })
             .select('*')
-            .single();
+            .maybeSingle();
             
           if (!createError && newProfile) {
             profileData = newProfile;
@@ -131,7 +131,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
             .from('profiles')
             .select('*')
             .eq('id', userData.user.id)
-            .single();
+            .maybeSingle();
             
           // If no profile exists, create one
           if (!profileData && !profileError) {
@@ -144,7 +144,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
                 is_admin: false,
               })
               .select('*')
-              .single();
+              .maybeSingle();
               
             if (!createError && newProfile) {
               profileData = newProfile;
