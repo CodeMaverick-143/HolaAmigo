@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --scrollbar-thumb: rgba(156, 163, 175, 0.5);
+  --scrollbar-track: rgba(229, 231, 235, 0.1);
+}
+
+.dark {
+  --scrollbar-thumb: rgba(55, 65, 81, 0.5);
+  --scrollbar-track: rgba(17, 24, 39, 0.1);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Better scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 5px;
+}
+
+/* Transition for dark mode */
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Fix textarea auto-resize */
+textarea {
+  overflow-y: auto;
+  resize: none;
+}
+
+/* Smooth transitions */
+button, a {
+  transition: all 0.2s;
+}
